@@ -681,6 +681,9 @@ CREATE TABLE `ac_customers` (
   `ip` varchar(15) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `date_added` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `available_point` int(11) NOT NULL DEFAULT '0',
+  `point_startdate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `point_enddate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`customer_id`),
   UNIQUE KEY `customers_loginname` (`loginname`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1;
@@ -1055,6 +1058,7 @@ CREATE TABLE `ac_orders` (
   `payment_method_key` varchar(128) NOT NULL DEFAULT '',
   `comment` text COLLATE utf8_general_ci NOT NULL,
   `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `order_total_point` int(11) NOT NULL  DEFAULT '0',
   `order_status_id` int(11) NOT NULL DEFAULT '0',
   `language_id` int(11) NOT NULL,
   `currency_id` int(11) NOT NULL,
@@ -1203,6 +1207,7 @@ CREATE TABLE `ac_order_products` (
   `model` varchar(24) COLLATE utf8_general_ci NOT NULL,
   `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `total_point` int(11) NOT NULL DEFAULT '0',
   `tax` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `quantity` int(4) NOT NULL DEFAULT '0',
   `subtract` int(1) NOT NULL DEFAULT '0',
@@ -1275,6 +1280,7 @@ CREATE TABLE `ac_products` (
   `free_shipping` int(1) NOT NULL DEFAULT '0',
   `shipping_price` decimal(15,4) NOT NULL DEFAULT '0.0000',
   `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `point` int(1) NOT NULL DEFAULT '0',
   `tax_class_id` int(11) NOT NULL,
   `date_available` date NOT NULL,
   `weight` decimal(5,2) NOT NULL DEFAULT '0.00',

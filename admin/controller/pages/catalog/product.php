@@ -123,6 +123,7 @@ class ControllerPagesCatalogProduct extends AController {
             $this->language->get('column_price'),
             $this->language->get('column_quantity'),
             $this->language->get('column_status'),
+			$this->language->get('point'),
 		);
 		$grid_settings['colModel'] = array(
 			array(
@@ -163,6 +164,13 @@ class ControllerPagesCatalogProduct extends AController {
 				'name' => 'status',
 				'index' => 'status',
                 'align' => 'center',
+				'width' => 130,
+				'search' => false,
+			),
+			array(
+				'name' => 'point',
+				'index' => 'point',
+				'align' => 'center',
 				'width' => 130,
 				'search' => false,
 			),

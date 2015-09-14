@@ -170,7 +170,7 @@ class ModelSaleCustomer extends Model {
 	 */
 	public function editCustomerField($customer_id, $field, $value) {
 
-		$data = array('loginname', 'firstname', 'lastname', 'email', 'telephone', 'fax', 'newsletter', 'customer_group_id', 'status', 'approved' );
+		$data = array('loginname', 'firstname', 'lastname', 'email', 'telephone', 'fax', 'newsletter', 'customer_group_id', 'status', 'approved', 'available_point');
 		if ( in_array($field, $data) )
 
 			if ( $this->dcrypt->active && in_array($field, $this->dcrypt->getEcryptedFields("customers")) ) {
@@ -338,7 +338,8 @@ class ModelSaleCustomer extends Model {
   				c.approved,
   				c.customer_group_id,
 				CONCAT(c.firstname, ' ', c.lastname) AS name,
-				cg.name AS customer_group
+				cg.name AS customer_group,
+				c.available_point
 				";
 		}
 		if ( $mode != 'total_only'){

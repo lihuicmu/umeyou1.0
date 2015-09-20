@@ -269,6 +269,8 @@ class ControllerPagesCheckoutCart extends AController {
           			'key'      => $result['key'],
           			'name'     => $result['name'],
           			'model'    => $result['model'],
+					'point'    => $result['point'],
+					'total_point' => $result['total_point'],
           			'thumb'    => $thumbnail,
           			'option'   => $option_data,
           			'quantity' => $form->getFieldHtml( array( 'type' => 'input',
